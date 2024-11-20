@@ -6,9 +6,10 @@ public class ddlaAlumnos {
     private String ddlausuario2;
     private String ddlausuario3;
     private String ddlaclave;
-    public Automata autonoma;
+    private Automata autonoma;
 
     public ddlaAlumnos() {
+        autonoma=new Automata();
         setDdlausuario1("diaz");
         setDdlausuario2("amangandi");
         setDdlausuario3("paccha");
@@ -20,6 +21,9 @@ public class ddlaAlumnos {
         String usuario;
         String ddlaclave;
         boolean sinLogeo = true;
+        int ddlaintentos = 0;
+        final int ddlaIntmax = 3;
+
         do {
             System.out.print("Ingrese su usuario: ");
             usuario = utilitario.sc.nextLine();
@@ -27,20 +31,24 @@ public class ddlaAlumnos {
             ddlaclave = utilitario.sc.nextLine();
             if ((this.ddlausuario1.equalsIgnoreCase(usuario) || this.ddlausuario2.equalsIgnoreCase(usuario)
                     || this.ddlausuario3.equalsIgnoreCase(usuario)) && this.ddlaclave.equalsIgnoreCase(ddlaclave)) {
-                break;
+                        ddlaLlamarAutonoma();
+                return true;
             }
+
+            ddlaintentos++;
+            if (ddlaintentos >= ddlaIntmax) {
+                System.out.println("Has excedido el número máximo de ddlaintentos.");
+                return false;
+            }
+
             System.out.print("Su usuario o ddlaclave son erroneos\nPara salir digite la letra [s]: ");
             if (utilitario.sc.nextLine().equalsIgnoreCase("s")) {
                 return false;
             }
         } while (sinLogeo);
-        // if (sinLogeo) {
-        //     System.out.println("Vamos a llamar al autonoma");
-        //     ddlaLlamarAutonoma();
-        // }
         return false;
     }
-    
+
     public void ddlaLlamarAutonoma() {
         System.out.println("Vamos ");
         autonoma.validarAutomata();

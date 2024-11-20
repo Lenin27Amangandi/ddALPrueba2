@@ -41,17 +41,17 @@ public class Automata {
             if (n == 1 || n == 2 || n == 3 || n == ee) {
                 switch (n) {
                     case 1:
-                        loading1();
+                        ddlaloading();
                         System.out.print(" corrd-02 " + " | " + tipoArsenal);
                         System.out.println();
                         break;
                     case 2:
-                        loading1();
+                        ddlaloading();
                         System.out.print(" corrd-04 " + " | " + tipoArsenal);
                         System.out.println();
                         break;
                     case 3:
-                        loading1();
+                        ddlaloading();
                         System.out.print(" corrd-05 " + " | " + tipoArsenal);
                         System.out.println();
                         break;
@@ -79,7 +79,7 @@ public class Automata {
         return -1;
     }
 
-    public void loading1() {
+    public void ddlaloading() {
         for (int i = 1; i <= 100; i++) {
             System.out.print("\r" + i + "%");
             try {
@@ -87,7 +87,6 @@ public class Automata {
             } catch (InterruptedException ie) {
             }
         }
-        // System.out.println();
     }
 
 }
