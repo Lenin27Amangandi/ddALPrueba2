@@ -41,8 +41,8 @@ public class ddlaAlumnos {
                 return false;
             }
 
-            System.out.print("Su usuario o ddlaclave son erroneos\nPara salir digite la letra [s]: ");
-            if (utilitario.sc.nextLine().equalsIgnoreCase("s")) {
+            System.out.print("Su usuario o ddlaclave son erroneos\nPara salir digite la letra [e]: ");
+            if (utilitario.sc.nextLine().equalsIgnoreCase("e")) {
                 return false;
             }
         } while (sinLogeo);
